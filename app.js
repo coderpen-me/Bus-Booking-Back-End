@@ -11,7 +11,8 @@ var cors = require('cors');
 const PORT = process.env.PORT || 5000;
 
 mongoose.Promise = global.Promise;
-mongoose.createConnection('mongodb://root:BNPZEr5FzQ1W@localhost/admin');
+mongoose.connect('mongodb://root:BNPZEr5FzQ1W@localhost/admin', {useNewUrlParser: true, useUnifiedTopology: true});
+//mongoose.createConnection('mongodb://root:BNPZEr5FzQ1W@localhost/admin');
 mongoose.connection.on('connected', () => {
     console.log("Connected to DB");
 });
