@@ -10,6 +10,17 @@ var routes = require('./routes/router.js');
 
 const PORT = process.env.PORT || 5000;
 
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost:27017/bus_booking', { useNewUrlParser: true });
+mongoose.connection.on('connected', () => {
+    console.log("Connected to DB");
+});
+mongoose.connection.on('error', (err) => {
+    if (err) {
+        console.log(`Error while connecting to DB ${err}`);
+    }
+});
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
