@@ -6,6 +6,9 @@ const rnd = require('random-int');
 
 
 router.get('/status', (req, res, next) => {
+    if (req.query.number > 40 || req.query.number < 1) {
+        return res.status(500).send("Invalid Seat Number <Please Retry between 1-40 (Inclusive)>")
+    }
     bus_seats.findOne({ "seat_number": req.query.number })
         .then((data) => {
             res.json(data);
@@ -16,6 +19,9 @@ router.get('/status', (req, res, next) => {
 });
 
 router.get('/booking_details', (req, res, next) => {
+    if (req.query.number > 40 || req.query.number < 1) {
+        return res.status(500).send("Invalid Seat Number <Please Retry between 1-40 (Inclusive)>")
+    }
     bus_seats.findOne({ "seat_number": req.query.number })
         .then((data) => {
             if (data.status == 0) {
