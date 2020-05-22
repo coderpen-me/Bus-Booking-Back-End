@@ -8,7 +8,7 @@ const Tickets = mongoose.Schema({
     ticket_id: {
         type: Int32
     },
-    name_of_passanger: {
+    name_of_passenger: {
         type: String
     },
     Booking_Timestamp: {
