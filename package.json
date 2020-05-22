@@ -6,7 +6,8 @@
     "dependencies": {
         "cors": "^2.8.5",
         "express": "^4.17.1",
-        "mongoose": "^5.9.15"
+        "mongoose": "^5.9.15",
+        "mongoose-int32": "^0.3.1"
     },
     "devDependencies": {},
     "scripts": {
