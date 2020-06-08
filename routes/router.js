@@ -63,9 +63,18 @@ router.get('/all_booked', (req, res, next) => {
 
 router.get('/book_seat', (req, res, next) => {
 
-    if (req.query.number > 40 || req.query.number < 1) {
-        return res.status(500).send("Invalid Seat Number <Please Retry between 1-40 (Inclusive)>")
+    if (isNaN(req.query.number)) {
+        return res.status(500).send("Please Enter Interger Number for seat");
     }
+
+    if (req.query.number > 40 || req.query.number < 1) {
+        return res.status(500).send("Invalid Seat Number <Please Retry between 1-40 (Inclusive)>");
+    }
+
+    if (Number.isInteger(req.query.numer) == false) {
+        return res.status(500).send("Please Enter Interger Number for seat");
+    }
+
     if (req.query.name == '') {
         return res.status(500).send("OOps, Name of passenger is empty !!");
     }
